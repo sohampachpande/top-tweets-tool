@@ -42,16 +42,19 @@
                 <div class="tweet-content">
                   <div class="tweet-header">
                     <span class="fullname">
-                      <strong>{{ t['name'] }}</strong>
+                      <strong>{{ profileName }}</strong>
                     </span>
-                    <span class="username"> {{ t['username'] }} </span>
+                    <span class="username"> 
+                      <a href="https://twitter.com/{{ profileUserName }}" > {{ profileUserName }}
+                      </a> 
+                    </span>
                     <span class="tweet-time">- {{ t['date'] }}</span>
                   </div>
                   
                   <!-- Profile Photo - link in src -->
-                  <!-- <a>
-                    <img class="tweet-card-avatar" src="" alt="">
-                  </a> -->
+                  <a>
+                    <img class="tweet-card-avatar" src="{{ profilePhotoLink }}" alt="">
+                  </a>
                   
                   <div class="tweet-text">
                     <p class="" lang="es" data-aria-label-part="0">
@@ -67,6 +70,9 @@
                     </a>
                     <a class="tweet-footer-btn">
                       <i class="octicon octicon-heart" aria-hidden="true"></i><span> {{ t['favorites'] }}</span>
+                    </a>
+                    <a class="tweet-footer-btn" href={{ t['permalink'] }}>
+                      <i class="octicon octicon-link-external" style="color: #267ED5" aria-hidden="true" ></i>
                     </a>
                   </div>
                 </div>

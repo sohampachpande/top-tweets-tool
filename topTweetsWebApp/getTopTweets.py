@@ -1,4 +1,5 @@
 import GetOldTweets3 as got
+from twitter_scraper import Profile
 import pandas as pd
 
 import nltk
@@ -36,6 +37,8 @@ def getTopTweets(username, startDate, endDate, noTopTweets=5):
     df = pd.DataFrame([tweet.__dict__ for tweet in tweets])
     originalDF = df
 
+    df = df.drop(['author_id', 'date', 'geo', 'username'], axis=1)
+
     # Get keyword count
     df['keywordCount'] = df.apply(lambda x: getkeywordCount(x["text"]), axis=1)
 
@@ -64,9 +67,23 @@ def getTopTweets(username, startDate, endDate, noTopTweets=5):
                    1.2 * df["repliesNormalisedCount"] +
                    1 * df["favoritesNormalisedCount"] + 2 *
                    df["keywordCount"]) * df["ifTo"] * df["timeElapsedScore"]
+
+    df = df.drop(['id', 'keywordCount', 'retweetsNormalisedCount',
+                  'favoritesNormalisedCount', 'repliesNormalisedCount',
+                  'keywordCountNormalisedCount', 'ifTo',
+                  'timeElapsedHours', 'timeElapsedScore'], axis=1)
+    
     sortedDF = df.sort_values(by=['score'], inplace=False, ascending=False)
 
-    return sortedDF.head(noTopTweets)
+    # Get profile user name and image link
+    profile = Profile(username).to_dict()
+
+    profileInformation = {}
+    profileInformation["username"] = profile["username"]
+    profileInformation["name"] = profile["name"]
+    profileInformation["profile_photo"] = profile["profile_photo"]
+
+    return sortedDF.head(noTopTweets), profileInformation
 
 
 if __name__ == '__main__':
