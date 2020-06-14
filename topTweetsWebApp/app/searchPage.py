@@ -15,9 +15,7 @@ def index():
 def result():
     searchQuery = request.form.get("search")
 
-    print(searchQuery)
-
-    start = dt.datetime.now() - dt.timedelta(days=1)
+    start = dt.datetime.now() - dt.timedelta(days=3)
     startDate = start.strftime('%Y-%m-%d')
     endDate = dt.datetime.utcnow().strftime('%Y-%m-%d')
 
