@@ -6,9 +6,11 @@ import smtplib
 server = smtplib.SMTP('smtp.gmail.com', 587)
 
 # log in to the server
-username = input('Enter gmail address: ')  
+username = "soham274@gmail.com"
+# input('Enter gmail address: ')  
 # x@gmail.com'
-password = getpass.getpass('Enter Password: ')
+password = "pachpande274"
+# getpass.getpass('Enter Password: ')
 # 'x' Disclaimer: Password is not encrypted
 server.ehlo()
 server.starttls()
@@ -18,12 +20,13 @@ server.login(username, password)
 fromaddr = username
 msg = MIMEMultipart()
 msg['From'] = fromaddr
-msg['Subject'] = "TV Series Schedule"
 
 
-def send_email(body_content, toEmailAddress):
+def send_email(subject, body_content, toEmailAddress):
+    msg['Subject'] = subject
     msg['To'] = toEmailAddress
-    msg.attach(MIMEText(body_content, 'plain'))
+    # msg.attach(MIMEText(body_content, 'plain'))
+    msg.attach(MIMEText(body_content, 'html'))
     text = msg.as_string()
     # Send mail
     try:
