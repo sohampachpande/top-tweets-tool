@@ -42,8 +42,7 @@ def getResult(searchQuery, noTopTweets=3):
 
     return tweetsList, profileUserName, profileName, profilePhotoLink
 
-
-searchUser = "BarackObama"
+searchUser = input("Hello! This application will help you stay upto date with tweets of your Twitter celebrities in a short newsletter\n Enter Username of Twitter Account you wish to generate newsletter for:")
 tweets, profileUserName, profileName, profilePhotoLink = getResult(
     searchUser, noTopTweets=5)
 
