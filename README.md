@@ -1,6 +1,6 @@
 # Top-Tweets-Newsletter
 
-![image](https://user-images.githubusercontent.com/38189229/186083351-6f340083-0b53-450c-bdb5-9646b97ca0f5.png)
+![image](https://user-images.githubusercontent.com/38189229/186086029-1af91e2a-9396-42e8-aecb-e7c001c07d07.png)
 
 A tool to stay up-to date with your favorite Twitter Celebrities! Twitter can be very informative but often there's a lot of noise and too much information to consume. This application will help users to follow their favorite Twitter Celebreties. 
 
