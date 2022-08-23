@@ -13,3 +13,6 @@ Run the following command and follow on screen instructions to enter username an
 ```
 python3 topTweetsNewsletter/createNewsletterHTML.py 
 ```
+Note - This application uses GetOldTweets to scrap twitter and was tested as of June 20, 2020. The application is unmaintained and changes to Twitter API, GetOldTweets3 might break the application.
+### Credits
+This application uses [https://github.com/Mottl/GetOldTweets3](github.com/Mottl/GetOldTweets3) for scraping Twitter. This tool is licensed under the MIT License and is free for private and commercial use. 
