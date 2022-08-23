@@ -43,6 +43,8 @@ def getResult(searchQuery, noTopTweets=3):
     return tweetsList, profileUserName, profileName, profilePhotoLink
 
 searchUser = input("Hello! This application will help you stay upto date with tweets of your Twitter celebrities in a short newsletter\n Enter Username of Twitter Account you wish to generate newsletter for:")
+targetEmail = input("Enter your Email:")
+
 tweets, profileUserName, profileName, profilePhotoLink = getResult(
     searchUser, noTopTweets=5)
 
@@ -65,4 +67,4 @@ out_file.write_text(raw_html)
 
 # Send Email
 today = dt.datetime.now()
-send_email("Top Tweets for Week of {}".format(profileName), raw_html, "soham.pachpande@gmail.com")
+send_email("Top Tweets for Week of {}".format(profileName), raw_html, targetEmail)
