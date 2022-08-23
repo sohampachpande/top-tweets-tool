@@ -6,12 +6,10 @@ import smtplib
 server = smtplib.SMTP('smtp.gmail.com', 587)
 
 # log in to the server
-username = "soham274@gmail.com"
-# input('Enter gmail address: ')  
+username = input('Enter gmail address: ')  
 # x@gmail.com'
-password = "pachpande274"
-# getpass.getpass('Enter Password: ')
-# 'x' Disclaimer: Password is not encrypted
+password = getpass.getpass('Enter Password: ')
+# Disclaimer: Password is not encrypted
 server.ehlo()
 server.starttls()
 server.ehlo()
